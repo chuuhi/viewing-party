@@ -98,26 +98,21 @@ def get_unique_watched(user_data):
             unique_movies_list.append(movie)
     return unique_movies_list
 
-# def get_friends_unique_watched(user_data):
+def get_friends_unique_watched(user_data):
+    unique_movies_list = []
 
-    # CREATE an empty list for unique movies
+    for friend in user_data["friends"]:
+        for movie in friend["watched"]:
+            is_movie_unique = True
 
-    # FOR each friend
+            for user_movie in user_data["watched"]:
+                if movie["title"] == user_movie["title"]:
+                    is_movie_unique = False
+            if is_movie_unique:
+                if movie not in unique_movies_list:
+                    unique_movies_list.append(movie)
+    return unique_movies_list
 
-    #     FOR each movie in friend's watched list
-
-    #         ASSUME the user has NOT watched this movie
-
-    #         FOR each movie in user's watched list
-
-    #             IF friend's movie title matches user's movie title
-    #                 Movie IS already watched by user
-    #                 Stop looking for this movie
-
-    #         IF movie is still not watched by user
-    #             ADD movie to unique movies
-
-    # RETURN unique movies
 # -----------------------------------------
 # ------------- WAVE 4 --------------------
 # -----------------------------------------
