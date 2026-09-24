@@ -22,7 +22,7 @@ def add_to_watchlist(user_data, movie):
 
 
 def watch_movie(user_data, title):
-    movie = get_movie_in_list(user_data.get("watchlist"), title)
+    movie = get_movie_in_list(user_data["watchlist"], title)
 
     if movie:
         user_data["watchlist"].remove(movie)
