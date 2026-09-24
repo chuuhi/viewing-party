@@ -37,20 +37,20 @@ def watch_movie(user_data, title):
 def get_watched_avg_rating(user_data):
     total_rating = 0.0
 
-    if user_data.get("watched") is None or len(user_data["watched"]) == 0:
+    if not user_data["watched"]:
         return 0.0
 
     for movie in user_data["watched"]:
         total_rating += movie["rating"]
 
-    avg = total_rating/len(user_data["watched"])
+    avg = total_rating / len(user_data["watched"])
     return avg
 
 
 def get_most_watched_genre(user_data):
     most_watched = None
 
-    if user_data.get("watched") is None or len(user_data["watched"]) == 0:
+    if len(user_data["watched"]) == 0:
         return None
 
     genres = {}
