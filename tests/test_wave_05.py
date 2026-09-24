@@ -53,7 +53,7 @@ def test_new_genre_rec_from_empty_friends():
     recommendations = get_new_rec_by_genre(sonyas_data)
 
     # Assert
-    assert len(recommendations) == 0
+    assert recommendations == []
 
 def test_unique_rec_from_favorites():
     # Arrange
